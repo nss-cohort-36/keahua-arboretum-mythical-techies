@@ -10,12 +10,13 @@ class Arboretum:
 
     #  add other biome types
 
-    def __init__(self, name, address, avail_animals, avail_plants):
+    def __init__(self, name, address, avail_animals, avail_plants, avail_habitats):
         self.name = name
         self.address = address
         self.avail_animals = avail_animals
         self.avail_plants = avail_plants
-        self.avail_habitats = {'happy'}
+        self.avail_habitats = avail_habitats
+        self.habitats_dict = {}
 
     @property
     def rivers(self):
@@ -69,7 +70,7 @@ class Arboretum:
         
         # figure out the syntax for getting the index
         for habitat in self.avail_habitats:
-            print(f"{index(habitat)}. {habitat}")
+            print(f"{self.avail_habitats.index(habitat) + 1}. {habitat}")
 
         choice = input("Choose your habitat > ")
 
