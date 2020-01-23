@@ -63,3 +63,13 @@ class Arboretum:
 
     def annex_coastline(self, coastline):
         self.__coastlines.append(coastline)
+
+    
+    def release_animal(self, animal):
+        if len(self.animals) < self.animal_limit:
+            self.add_animal(animal)
+            print(f'You added a {animal}')
+        else:
+            print(f'That biome is full. Please select another biome')
+
+            

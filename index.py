@@ -7,8 +7,9 @@ from environments import Habitat
 
 
 keahua = Arboretum("Keahua Arboretum", "123 Paukauila Lane")
-park = Habitat(4, 10)
+park = Habitat()
 print(f' TESTING ==>', park)
+print(dir(park))
 
 def build_menu():
     # os.system('cls' if os.name == 'nt' else 'clear')
