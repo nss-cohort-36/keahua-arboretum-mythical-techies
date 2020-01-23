@@ -10,8 +10,12 @@ def annex_habitat(arboretum):
 
     choice = input("Choose your habitat > ")
 
+# Add other biomes
+
     if choice == "1":
         river = River()
-        arboretum.rivers.append(river)
+        
+        arboretum.annex_river(river)
+        print(arboretum.rivers[0].id)
     if choice == "2":
-        pass
+        pass 
