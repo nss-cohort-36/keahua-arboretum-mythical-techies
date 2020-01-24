@@ -1,7 +1,6 @@
 import os
 from arboretum import Arboretum
-from actions.annex import annex_habitat
-from actions.release_animal import release_animal
+# from actions.release_animal import release_animal
 from actions.report import build_facility_report
 from environments import Habitat
 
@@ -13,12 +12,17 @@ keahua = Arboretum("Keahua Arboretum", "123 Paukauila Lane", avail_animals, avai
 print(keahua.habitats_dict)
 
 
-
 # keahua.habitats_dict.["River"].append("happy")
 # test to show how things can be added
 # keahua.habitats_dict["River"].append("Happy")
 # print(keahua.habitats_dict)
 
+def animal_menu():
+    for animal in avail_animals:
+        print(f"{avail_animals.index(animal) + 1}. {animal}")
+
+    choice = input(">> ")
+    return choice
 
 
 def build_menu():
@@ -44,10 +48,10 @@ def main_menu():
         print(keahua.habitats_dict)
 
     if choice == "2":
-        release_animal(keahua)
+        animal_menu()
 
     if choice == "3":
-        pass
+        animal_menu()
 
     if choice == "4":
         pass
@@ -56,7 +60,7 @@ def main_menu():
         build_facility_report(keahua)
         pass
 
-    if choice != "6":
+    else:
         main_menu()
 
 main_menu()

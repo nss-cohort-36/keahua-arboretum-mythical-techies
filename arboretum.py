@@ -78,7 +78,7 @@ class Arboretum:
 
         if choice == "5":
             river = River()
-            
+
             self.habitats_dict["River"].append(river)
             print(self.habitats_dict["River"][0].id)
         if choice == "2":
