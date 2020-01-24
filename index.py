@@ -48,10 +48,11 @@ def main_menu():
         print(keahua.habitats_dict)
 
     if choice == "2":
-        animal_menu()
+        animal_choice = animal_menu()
+        keahua.release_animal(animal_choice)
 
     if choice == "3":
-        animal_menu()
+        animal_choice = animal_menu()
 
     if choice == "4":
         pass
