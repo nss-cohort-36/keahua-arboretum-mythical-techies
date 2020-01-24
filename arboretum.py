@@ -1,4 +1,5 @@
 import os
+from environments import River
 
 
 class Arboretum:
@@ -16,7 +17,7 @@ class Arboretum:
         self.avail_animals = avail_animals
         self.avail_plants = avail_plants
         self.avail_habitats = avail_habitats
-        self.habitats_dict = {}
+        self.habitats_dict = {habitat: [] for habitat in avail_habitats}
 
     @property
     def rivers(self):
@@ -68,7 +69,6 @@ class Arboretum:
     def annex_habitat(self):
         os.system('cls' if os.name == 'nt' else 'clear')
         
-        # figure out the syntax for getting the index
         for habitat in self.avail_habitats:
             print(f"{self.avail_habitats.index(habitat) + 1}. {habitat}")
 
@@ -76,10 +76,10 @@ class Arboretum:
 
     # Add other biomes
 
-        if choice == "1":
+        if choice == "5":
             river = River()
             
-            arboretum.annex_river(river)
-            print(arboretum.rivers[0].id)
+            self.habitats_dict["River"].append(river)
+            print(self.habitats_dict["River"][0].id)
         if choice == "2":
             pass 

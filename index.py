@@ -10,6 +10,15 @@ avail_plants = ["Mountain Apple Tree", "Silversword", "Rainbow Eucalyptus Tree",
 avail_habitats = ["Mountain", "Swamp", "Grassland", "Forest", "River", "Coastline"]
 
 keahua = Arboretum("Keahua Arboretum", "123 Paukauila Lane", avail_animals, avail_plants, avail_habitats)
+print(keahua.habitats_dict)
+
+
+
+# keahua.habitats_dict.["River"].append("happy")
+# test to show how things can be added
+# keahua.habitats_dict["River"].append("Happy")
+# print(keahua.habitats_dict)
+
 
 
 def build_menu():
@@ -32,6 +41,7 @@ def main_menu():
 
     if choice == "1":
         keahua.annex_habitat()
+        print(keahua.habitats_dict)
 
     if choice == "2":
         release_animal(keahua)
