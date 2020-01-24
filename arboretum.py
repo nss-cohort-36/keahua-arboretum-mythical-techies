@@ -86,75 +86,50 @@ class Arboretum:
             pass 
 
     def release_animal(self, choice):
+        habitats_arr = []
+
         if choice == "1":
             gecko = Gecko()
 
             habitats_arr = [ forest for forest in self.habitats_dict["Forest"] ]
 
-            for i, v in enumerate(habitats_arr):
-                print(f'{i + 1}. Forest {v}')
-
         if choice == "2":
             dolphin = RiverDolphin()
 
-            habitats_arr = [ river for river in self.habitats_dict["River"] ] + [ river for river in self.habitats_dict["River"] ]
-
-            for i, v in enumerate(habitats_arr):
-                print(f'{i + 1}. River {v}')
+            habitats_arr = [ river for river in self.habitats_dict["River"] ] + [ coastline for coastline in self.habitats_dict["Coastline"] ]
 
         if choice == "3":
             goose = Goose()
 
-            for grassland in self.habitats_dict["Grassland"]:
-                print(f'{index + 1}. Grassland {grassland.id}')
-                index += 1
+            habitats_arr = [ grassland for grassland in self.habitats_dict["Grassland"] ]
 
         if choice == "4":
             kikakapu = Kikakapu()
 
-            for river in self.habitats_dict["River"]:
-                print(f'{index + 1}. River {river.id}')
-                index += 1
-
-            for swamp in self.habitats_dict["Swamp"]:
-                print(f'{index + 1}. Swamp {swamp.id}')
-                index += 1
+            habitats_arr = [ river for river in self.habitats_dict["River"] ] + [ swamp for swamp in self.habitats_dict["Swamp"] ]
 
         if choice == "5":
             pueo = Pueo()
 
-            for grassland in self.habitats_dict["Grassland"]:
-                print(f'{index + 1}. Grassland {grassland.id}')
-                index += 1
-
-            for forest in self.habitats_dict["Forest"]:
-                print(f'{index + 1}. Forest {forest.id}')
-                index += 1
+            habitats_arr = [ grassland for grassland in self.habitats_dict["Grassland"] ] + [ forest for forest in self.habitats_dict["Forest"] ]
 
         if choice == "6":
             ulae = Ulae()
 
-            for coastline in self.habitats_dict["Coastline"]:
-                print(f'{index + 1}. Coastline {coastline.id}')
-                index += 1
+            habitats_arr = [ coastline for coastline in self.habitats_dict["Coastline"] ]
 
         if choice == "7":
             opeapea = Opeapea()
 
-            for forest in self.habitats_dict["Forest"]:
-                print(f'{index + 1}. Forest {forest.id}')
-                index += 1
-
-            for mountain in self.habitats_dict["Mountain"]:
-                print(f'{index + 1}. Mountain {mountain.id}')
-                index += 1
+            habitats_arr = [ forest for forest in self.habitats_dict["Forest"] ] + [ mountain for mountain in self.habitats_dict["Mountain"] ]
 
         if choice == "8":
             spider = Spider()
 
-            for swamp in self.habitats_dict["Swamp"]:
-                print(f'{index + 1}. Swamp {swamp.id}')
-                index += 1
+            habitats_arr = [ swamp for swamp in self.habitats_dict["Swamp"] ]
+
+        for i, v in enumerate(habitats_arr):
+                print(f'{i + 1}. {type(v).__name__} {v.id}')
 
         print("Release the animal into which biome?")
         choice = input("> ")
