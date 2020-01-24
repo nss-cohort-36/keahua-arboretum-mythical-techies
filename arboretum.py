@@ -86,25 +86,21 @@ class Arboretum:
             pass 
 
     def release_animal(self, choice):
-        index = 0
-
         if choice == "1":
             gecko = Gecko()
 
-            for forest in self.habitats_dict["Forest"]:
-                print(f'{index + 1}. Forest {forest.id}')
-                index += 1
+            habitats_arr = [ forest for forest in self.habitats_dict["Forest"] ]
+
+            for i, v in enumerate(habitats_arr):
+                print(f'{i + 1}. Forest {v}')
 
         if choice == "2":
             dolphin = RiverDolphin()
 
-            for river in self.habitats_dict["River"]:
-                print(f'{index + 1}. River {river.id}')
-                index += 1
+            habitats_arr = [ river for river in self.habitats_dict["River"] ] + [ river for river in self.habitats_dict["River"] ]
 
-            for coastline in self.habitats_dict["Coastline"]:
-                print(f'{index + 1}. Coastline {coastline.id}')
-                index += 1
+            for i, v in enumerate(habitats_arr):
+                print(f'{i + 1}. River {v}')
 
         if choice == "3":
             goose = Goose()
