@@ -1,3 +1,7 @@
+import os
+from environments import River
+
+
 class Arboretum:
     # def __init__(self, name, address):
         # self.name = name
@@ -7,15 +11,13 @@ class Arboretum:
 
     #  add other biome types
 
-    def __init__(self, name, address):
+    def __init__(self, name, address, avail_animals, avail_plants, avail_habitats):
         self.name = name
         self.address = address
-        self.__rivers = []
-        self.__grasslands = []
-        self.__mountains = []
-        self.__swamps = []
-        self.__forests = []
-        self.__coastlines = []
+        self.avail_animals = avail_animals
+        self.avail_plants = avail_plants
+        self.avail_habitats = avail_habitats
+        self.habitats_dict = {habitat: [] for habitat in avail_habitats}
 
     @property
     def rivers(self):
@@ -63,3 +65,21 @@ class Arboretum:
 
     def annex_coastline(self, coastline):
         self.__coastlines.append(coastline)
+
+    def annex_habitat(self):
+        os.system('cls' if os.name == 'nt' else 'clear')
+        
+        for habitat in self.avail_habitats:
+            print(f"{self.avail_habitats.index(habitat) + 1}. {habitat}")
+
+        choice = input("Choose your habitat > ")
+
+    # Add other biomes
+
+        if choice == "5":
+            river = River()
+            
+            self.habitats_dict["River"].append(river)
+            print(self.habitats_dict["River"][0].id)
+        if choice == "2":
+            pass 

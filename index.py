@@ -5,10 +5,21 @@ from actions.release_animal import release_animal
 from actions.report import build_facility_report
 from environments import Habitat
 
+avail_animals = ["Gold Dust Day Gecko", "River Dolphin", "Nene Goose", "Kīkākapu", "Pueo", "'Ulae", "Ope'ape'a", "Happy-Face Spider"]
+avail_plants = ["Mountain Apple Tree", "Silversword", "Rainbow Eucalyptus Tree", "Blue Jade Vine"]
+avail_habitats = ["Mountain", "Swamp", "Grassland", "Forest", "River", "Coastline"]
 
-keahua = Arboretum("Keahua Arboretum", "123 Paukauila Lane")
-park = Habitat(4, 10)
-print(f' TESTING ==>', park)
+keahua = Arboretum("Keahua Arboretum", "123 Paukauila Lane", avail_animals, avail_plants, avail_habitats)
+print(keahua.habitats_dict)
+
+
+
+# keahua.habitats_dict.["River"].append("happy")
+# test to show how things can be added
+# keahua.habitats_dict["River"].append("Happy")
+# print(keahua.habitats_dict)
+
+
 
 def build_menu():
     # os.system('cls' if os.name == 'nt' else 'clear')
@@ -29,7 +40,8 @@ def main_menu():
     choice = input(">> ")
 
     if choice == "1":
-        annex_habitat(keahua)
+        keahua.annex_habitat()
+        print(keahua.habitats_dict)
 
     if choice == "2":
         release_animal(keahua)
