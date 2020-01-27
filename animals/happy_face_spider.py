@@ -9,7 +9,7 @@ class HappyFaceSpider(Animal):
         Animal.__init__(self, "Happy-Face Spider")
         # IStagnant.__init__(self)
         Identifiable.__init__(self)
-        self.__prey = {"Grasshopper", "Fruit fly"}
+        self.__prey = ["Grasshopper", "Fruit fly"]
 
     @property
     def prey(self):

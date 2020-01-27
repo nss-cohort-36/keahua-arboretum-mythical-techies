@@ -3,7 +3,6 @@ from environments import River, Swamp, Coastline, Mountain, Forest, Grassland
 from animals import RiverDolphin, HappyFaceSpider, GoldDustDayGecko, Opeapea, NeneGoose, Ulae, Pueo, Kikakapu
 from plants import BlueJadeVine, MountainAppleTree, RainbowEucalyptus, Silversword
 
-
 class Arboretum:
     def __init__(self, name, address, avail_animals, avail_plants, avail_habitats):
         self.name = name
@@ -13,7 +12,6 @@ class Arboretum:
         self.avail_habitats = avail_habitats
         self.habitats_dict = {habitat: [] for habitat in avail_habitats}
 
-
     def annex_habitat(self):
         os.system('cls' if os.name == 'nt' else 'clear')
 
@@ -22,8 +20,6 @@ class Arboretum:
 
         choice = input("Choose your habitat > ")
         print(choice)
-
-        # Add other biomes
 
         if choice == "1":
             habitat = Mountain()
@@ -96,10 +92,10 @@ class Arboretum:
 
         targetHabitat = potentialHabitatsForAddedAnimal[int(choice)-1]
 
-        habitatTargetList = self.habitats_dict[type(targetHabitat).__name__] ## ?
+        habitatTargetList = self.habitats_dict[type(targetHabitat).__name__]
         object_class_animal_to_add = habitatTargetList[habitatTargetList.index(targetHabitat)]
 
-        if len(object_class_animal_to_add.animals) < object_class_animal_to_add.animal_limit: 
+        if len(object_class_animal_to_add.animals) < object_class_animal_to_add.animal_limit:
             object_class_animal_to_add.animals.append(animal_to_add)
             print(f"You have added an {type(animal_to_add).__name__} to {type(targetHabitat).__name__} {object_class_animal_to_add}")
 
@@ -107,3 +103,38 @@ class Arboretum:
             print("That habitat is already at it's max for animals. Please choose another habitat")
 
         print(object_class_animal_to_add.animals)
+        # print(habitatTargetList[habitatTargetList.index(targetHabitat)].animals)
+
+    def feed_animal(self, choice):
+        if choice == "1":
+            animal_to_feed = GoldDustDayGecko()
+
+        if choice == "2":
+            animal_to_feed = RiverDolphin()
+
+        if choice == "3":
+            animal_to_feed = NeneGoose()
+
+        if choice == "4":
+            animal_to_feed = Kikakapu()
+
+        if choice == "5":
+            animal_to_feed = Pueo()
+
+        if choice == "6":
+            animal_to_feed = Ulae()
+
+        if choice == "7":
+            animal_to_feed = Opeapea()
+
+        if choice == "8":
+            animal_to_feed = HappyFaceSpider()
+
+        for i, v in enumerate(animal_to_feed.prey):
+                print(f'{i + 1}. {v}')
+
+        print("Which prey do you want to feed the animal?")
+        choice = input("> ")
+
+        targetPrey = animal_to_feed.prey[int(choice)-1]
+        animal_to_feed.feed(targetPrey)
