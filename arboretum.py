@@ -75,53 +75,56 @@ class Arboretum:
 
     def release_animal(self, choice):
         if choice == "1":
-            gecko = Gecko()
-            habitats_arr = [forest for forest in self.habitats_dict["Forest"]]
+            animal_to_add = Gecko()
+            potentialHabitatsForAddedAnimal = [forest for forest in self.habitats_dict["Forest"]]
 
         if choice == "2":
-            dolphin = RiverDolphin()
-            habitats_arr = [river for river in self.habitats_dict["River"]] + [coastline for coastline in self.habitats_dict["Coastline"]]
+            animal_to_add = RiverDolphin()
+            potentialHabitatsForAddedAnimal = [river for river in self.habitats_dict["River"]] + [coastline for coastline in self.habitats_dict["Coastline"]]
 
         if choice == "3":
-            goose = Goose()
-            habitats_arr = [grassland for grassland in self.habitats_dict["Grassland"]]
+            animal_to_add = Goose()
+            potentialHabitatsForAddedAnimal = [grassland for grassland in self.habitats_dict["Grassland"]]
 
         if choice == "4":
-            kikakapu = Kikakapu()
-            habitats_arr = [river for river in self.habitats_dict["River"]] + [swamp for swamp in self.habitats_dict["Swamp"]]
+            animal_to_add = Kikakapu()
+            potentialHabitatsForAddedAnimal = [river for river in self.habitats_dict["River"]] + [swamp for swamp in self.habitats_dict["Swamp"]]
 
         if choice == "5":
-            pueo = Pueo()
-            habitats_arr = [grassland for grassland in self.habitats_dict["Grassland"]] + [forest for forest in self.habitats_dict["Forest"]]
+            animal_to_add = Pueo()
+            potentialHabitatsForAddedAnimal = [grassland for grassland in self.habitats_dict["Grassland"]] + [forest for forest in self.habitats_dict["Forest"]]
 
         if choice == "6":
-            ulae = Ulae()
-            habitats_arr = [coastline for coastline in self.habitats_dict["Coastline"]]
+            animal_to_add = Ulae()
+            potentialHabitatsForAddedAnimal = [coastline for coastline in self.habitats_dict["Coastline"]]
 
         if choice == "7":
-            opeapea = Opeapea()
-            habitats_arr = [forest for forest in self.habitats_dict["Forest"]] + [mountain for mountain in self.habitats_dict["Mountain"]]
+            animal_to_add = Opeapea()
+            potentialHabitatsForAddedAnimal = [forest for forest in self.habitats_dict["Forest"]] + [mountain for mountain in self.habitats_dict["Mountain"]]
 
         if choice == "8":
-            spider = Spider()
-            habitats_arr = [swamp for swamp in self.habitats_dict["Swamp"]]
+            animal_to_add = Spider()
+            potentialHabitatsForAddedAnimal = [swamp for swamp in self.habitats_dict["Swamp"]]
 
-        for i, v in enumerate(habitats_arr):
+        for i, v in enumerate(potentialHabitatsForAddedAnimal):
             print(f'{i + 1}. {type(v).__name__} {v.id}')
 
         print("Release the animal into which biome?")
         choice = input("> ")
-        print(habitats_arr[int(choice)-1].id)
 
-        animal_to_add = habitats_arr[int(choice)-1]
-        class_animal_to_add = self.habitats_dict[type(animal_to_add).__name__]
-        object_class_animal_to_add = class_animal_to_add[class_animal_to_add.index(animal_to_add)]
+        print(potentialHabitatsForAddedAnimal[int(choice)-1].id)
+
+        targetHabitat = potentialHabitatsForAddedAnimal[int(choice)-1]
+
+        habitatTargetList = self.habitats_dict[type(targetHabitat).__name__] ## ?
+        object_class_animal_to_add = habitatTargetList[habitatTargetList.index(targetHabitat)]
         print(dir(object_class_animal_to_add))
 
         if len(object_class_animal_to_add.animals) < object_class_animal_to_add.animal_limit: 
             object_class_animal_to_add.animals.append(animal_to_add)
-            print(f"You have added an animal to {class_animal_to_add} {object_class_animal_to_add}")
+            print(f"You have added an {type(animal_to_add).__name__} to {type(targetHabitat).__name__} {object_class_animal_to_add}")
+            print(object_class_animal_to_add.animals)
         else:
             print("That habitat is already at it's max for animals. Please choose another habitat")
 
-        print(class_animal_to_add[class_animal_to_add.index(animal_to_add)].animals)
+        print(habitatTargetList[habitatTargetList.index(targetHabitat)].animals)

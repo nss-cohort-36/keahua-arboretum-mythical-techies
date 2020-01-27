@@ -9,6 +9,7 @@ avail_plants = ["Mountain Apple Tree", "Silversword", "Rainbow Eucalyptus Tree",
 avail_habitats = ["Mountain", "Swamp", "Grassland", "Forest", "River", "Coastline"]
 
 keahua = Arboretum("Keahua Arboretum", "123 Paukauila Lane", avail_animals, avail_plants, avail_habitats)
+
 print(keahua.habitats_dict)
 
 
