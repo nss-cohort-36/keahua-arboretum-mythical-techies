@@ -1,7 +1,7 @@
 import os
 from environments import River
 from environments import Swamp
-from animals import RiverDolphin, Pueo
+from animals import RiverDolphin, Pueo, Kikakapu
 
 
 class Arboretum:

@@ -1,16 +1,14 @@
 from animals import Animal
 from interfaces.animal import IFreshwater
-from interfaces import Identifiable, IAquatic, ISwimming 
+from interfaces import Identifiable, ISwimming 
 
 
-class Pueo(Animal, IFlying, Identifiable):
+class Kikakapu(Animal, Identifiable, IFreshwater):
     
     def __init__(self):
         Animal.__init__(self, "Kikakapu") # Inherit props from Animal parent class
         # Inherit interface props
-        IFreshwater.__init__(self) 
-        IAquatic.__init__(self) 
-        ISwimming.__init__(self) 
+        IFreshwater.__init__(self) # Inherits from IAquatic interface
         Identifiable.__init__(self)
         self.__prey = {"Mackrel","Tuna", "Clownfish"}
     
