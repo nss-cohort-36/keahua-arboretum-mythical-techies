@@ -1,6 +1,7 @@
 import os
 from environments import River, Swamp, Coastline
 from animals import RiverDolphin, HappyFaceSpider, GoldDustDayGecko, Opeapea, NeneGoose, Ulae
+from plants import BlueJadeVine, MountainAppleTree, RainbowEucalyptus, Silversword
 
 
 class Arboretum:
