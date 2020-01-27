@@ -1,24 +1,29 @@
 import sys
+from interfaces import IAquatic
+from interfaces import Identifiable
+from .habitat import Habitat
+#from interfaces.habitats import IStagnant
+
 sys.path.append('../')
 
-from environments.environment import Environment
-from interfaces.habitats import IStagnant
-# from animals.
+class Swamp(Habitat, Identifiable):
+     def __init__(self):
+        Habitat.__init__(self)
+        Identifiable.__init__(self)
+        Habitat.plant_limit = 12
+        Habitat.animal_limit = 18
 
+    #  def __init__(self, name):
+    #   self.name = name
+    #   self.inhabitants = []
 
-class Swamp(Environment):
-
-    def __init__(self, name):
-      self.name = name
-      self.inhabitants = []
-
-    def animal_count(self):
+     def animal_count(self):
         return "This place has a bunch of animals in it"
 
-    def addInhabitant(self, item):
+     def addInhabitant(self, item):
         if not isinstance(item, IStagnant):
             raise TypeError(f"{item} is not of type IStagnant")
         self.inhabitants.append(item)
 
-    def __str__(self):
+     def __str__(self):
         return self.name
