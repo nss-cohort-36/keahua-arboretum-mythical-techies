@@ -7,6 +7,8 @@ class Coastline(Habitat, Identifiable):
     def __init__(self):
         Habitat.__init__(self)
         Identifiable.__init__(self)
+        self.plant_limit = 3
+        self.animal_limit = 15
 
     def add_animal(self, animal):
         try:
