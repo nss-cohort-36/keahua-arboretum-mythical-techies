@@ -1,7 +1,7 @@
 import os
 from environments import River
 from environments import Swamp
-from animals import RiverDolphin
+from animals import RiverDolphin, HappyFaceSpider
 
 
 class Arboretum:
@@ -104,7 +104,7 @@ class Arboretum:
             potentialHabitatsForAddedAnimal = [forest for forest in self.habitats_dict["Forest"]] + [mountain for mountain in self.habitats_dict["Mountain"]]
 
         if choice == "8":
-            animal_to_add = Spider()
+            animal_to_add = HappyFaceSpider()
             potentialHabitatsForAddedAnimal = [swamp for swamp in self.habitats_dict["Swamp"]]
 
         for i, v in enumerate(potentialHabitatsForAddedAnimal):
