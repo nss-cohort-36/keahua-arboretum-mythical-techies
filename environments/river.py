@@ -1,4 +1,4 @@
-from habitat import Habitat
+from .habitat import Habitat
 from interfaces import IAquatic
 from interfaces import Identifiable
 from animals import RiverDolphin

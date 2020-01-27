@@ -111,5 +111,17 @@ class Arboretum:
 
         print("Release the animal into which biome?")
         choice = input("> ")
+        print(habitats_arr[int(choice)-1].id)
 
-        # arboretum.rivers[int(choice) - 1].animals.append(animal)
+        animal_to_add = habitats_arr[int(choice)-1]
+        class_animal_to_add = self.habitats_dict[type(animal_to_add).__name__]
+        object_class_animal_to_add = class_animal_to_add[class_animal_to_add.index(animal_to_add)]
+        print(dir(object_class_animal_to_add))
+
+        if len(object_class_animal_to_add.animals) < object_class_animal_to_add.animal_limit: 
+            object_class_animal_to_add.animals.append(animal_to_add)
+            print(f"You have added an animal to {class_animal_to_add} {object_class_animal_to_add}")
+        else:
+            print("That habitat is already at it's max for animals. Please choose another habitat")
+
+        print(class_animal_to_add[class_animal_to_add.index(animal_to_add)].animals)
