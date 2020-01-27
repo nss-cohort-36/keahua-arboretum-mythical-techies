@@ -29,5 +29,5 @@ class Swamp(Habitat, ISwimming, Identifiable) : #add IStagnat, IFreshwater, ISun
             raise TypeError(f"{item} is not of type IStagnant")
         self.inhabitants.append(item)
 
-     def __str__(self):
-        return self.name
+     # def __str__(self):
+     #    return self.name
