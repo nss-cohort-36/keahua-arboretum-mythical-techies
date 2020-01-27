@@ -1,6 +1,6 @@
 import os
-from environments import River, Swamp, Coastline
-from animals import RiverDolphin, HappyFaceSpider, GoldDustDayGecko, Opeapea, NeneGoose, Ulae
+from environments import River, Swamp, Coastline, Mountain, Forest, Grassland
+from animals import RiverDolphin, HappyFaceSpider, GoldDustDayGecko, Opeapea, NeneGoose, Ulae, Pueo, Kikakapu
 
 
 class Arboretum:
@@ -12,48 +12,6 @@ class Arboretum:
         self.avail_habitats = avail_habitats
         self.habitats_dict = {habitat: [] for habitat in avail_habitats}
 
-    @property
-    def rivers(self):
-        return self.__rivers
-
-    def annex_river(self, river):
-        self.__rivers.append(river)
-
-    @property
-    def grasslands(self):
-        return self.__grasslands
-
-    def annex_grassland(self, grassland):
-        self.__grasslands.append(grassland)
-
-    @property
-    def mountains(self):
-        return self.__mountains
-
-    def annex_mountain(self, mountain):
-        self.__mountains.append(mountain)
-
-    @property
-    def swamps(self):
-        return self.__swamps
-
-    def annex_swamp(self, swamp):
-        self.__swamps.append(swamp)
-
-    @property
-    def forests(self):
-        return self.__forests
-
-    def annex_forest(self, forest):
-        self.__forests.append(forest)
-
-    @property
-    def coastlines(self):
-        return self.__coastlines
-
-    def annex_coastline(self, coastline):
-        self.__coastlines.append(coastline)
-
     def annex_habitat(self):
         os.system('cls' if os.name == 'nt' else 'clear')
 
@@ -63,10 +21,17 @@ class Arboretum:
         choice = input("Choose your habitat > ")
         print(choice)
 
-    # Add other biomes
-
+        if choice == "1":
+            habitat = Mountain()
+        
         if choice == "2":
             habitat = Swamp()
+        
+        if choice == "3":
+            habitat = Grassland()
+        
+        if choice == "4":
+            habitat = Forest()
         
         if choice == "5":
             habitat = River()
@@ -100,6 +65,7 @@ class Arboretum:
 
         if choice == "5":
             animal_to_add = Pueo()
+            # print(f"I am an {animal_to_add} ")
             potentialHabitatsForAddedAnimal = [grassland for grassland in self.habitats_dict["Grassland"]] + [forest for forest in self.habitats_dict["Forest"]]
 
         if choice == "6":
@@ -126,16 +92,16 @@ class Arboretum:
 
         habitatTargetList = self.habitats_dict[type(targetHabitat).__name__]
         object_class_animal_to_add = habitatTargetList[habitatTargetList.index(targetHabitat)]
-        print(dir(object_class_animal_to_add))
 
         if len(object_class_animal_to_add.animals) < object_class_animal_to_add.animal_limit:
             object_class_animal_to_add.animals.append(animal_to_add)
             print(f"You have added an {type(animal_to_add).__name__} to {type(targetHabitat).__name__} {object_class_animal_to_add}")
-            print(object_class_animal_to_add.animals)
+
         else:
             print("That habitat is already at it's max for animals. Please choose another habitat")
 
-        print(habitatTargetList[habitatTargetList.index(targetHabitat)].animals)
+        print(object_class_animal_to_add.animals)
+        # print(habitatTargetList[habitatTargetList.index(targetHabitat)].animals)
 
     def feed_animal(self, choice):
 
@@ -169,4 +135,5 @@ class Arboretum:
         print("Which prey do you want to feed the animal?")
         choice = input("> ")
 
-        targetPrey = potentialHabitatsForAddedAnimal[int(choice)-1]
+        targetPrey = animal_to_feed.prey[int(choice)-1]
+        print(targetPrey)
