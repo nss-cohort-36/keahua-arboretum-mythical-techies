@@ -24,4 +24,4 @@ class Pueo(Animal, IFlying, Identifiable):
             print(f'The Pueo does not want to eat the {prey}')
     
     def __str__(self):
-        return f'I am a {self}'
+        return f'Pueo ID :: {self.id}'
