@@ -1,12 +1,16 @@
 import sys
 from interfaces import IAquatic
+from interfaces import ISwimming
 from interfaces import Identifiable
 from .habitat import Habitat
 #from interfaces.habitats import IStagnant
+#from interfaces import IFreshwater
+#from interfaces import ISunlight
+
 
 sys.path.append('../')
 
-class Swamp(Habitat, Identifiable):
+class Swamp(Habitat, ISwimming, Identifiable) : #add IStagnat, IFreshwater, ISunlight
      def __init__(self):
         Habitat.__init__(self)
         Identifiable.__init__(self)
