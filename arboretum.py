@@ -1,6 +1,6 @@
 import os
 from environments import River
-from animals import RiverDolphin
+from animals import RiverDolphin, Pueo
 
 
 class Arboretum:
@@ -92,6 +92,7 @@ class Arboretum:
 
         if choice == "5":
             animal_to_add = Pueo()
+            # print(f"I am an {animal_to_add} ")
             potentialHabitatsForAddedAnimal = [grassland for grassland in self.habitats_dict["Grassland"]] + [forest for forest in self.habitats_dict["Forest"]]
 
         if choice == "6":
