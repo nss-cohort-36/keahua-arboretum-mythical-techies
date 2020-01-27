@@ -137,13 +137,12 @@ class Arboretum:
 
         habitatTargetList = self.habitats_dict[type(targetHabitat).__name__] ## ?
         object_class_animal_to_add = habitatTargetList[habitatTargetList.index(targetHabitat)]
-        print(dir(object_class_animal_to_add))
 
         if len(object_class_animal_to_add.animals) < object_class_animal_to_add.animal_limit: 
             object_class_animal_to_add.animals.append(animal_to_add)
             print(f"You have added an {type(animal_to_add).__name__} to {type(targetHabitat).__name__} {object_class_animal_to_add}")
-            print(object_class_animal_to_add.animals)
+
         else:
             print("That habitat is already at it's max for animals. Please choose another habitat")
 
-        print(habitatTargetList[habitatTargetList.index(targetHabitat)].animals)
+        print(object_class_animal_to_add.animals)
