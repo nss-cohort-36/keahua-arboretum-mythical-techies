@@ -1,5 +1,5 @@
 import os
-from environments import River, Swamp, Coastline
+from environments import River, Swamp, Coastline, Mountain, Forest, Grassland
 from animals import RiverDolphin, HappyFaceSpider, GoldDustDayGecko, Opeapea, NeneGoose, Ulae
 
 
@@ -65,8 +65,17 @@ class Arboretum:
 
     # Add other biomes
 
+        if choice == "1":
+            habitat = Mountain()
+        
         if choice == "2":
             habitat = Swamp()
+        
+        if choice == "3":
+            habitat = Grassland()
+        
+        if choice == "4":
+            habitat = Forest()
         
         if choice == "5":
             habitat = River()

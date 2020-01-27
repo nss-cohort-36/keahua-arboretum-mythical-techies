@@ -1,5 +1,4 @@
 import sys
-from interfaces import IAquatic
 from interfaces import Identifiable
 from .habitat import Habitat
 #from interfaces.habitats import IStagnant
