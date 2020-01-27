@@ -1,5 +1,6 @@
 import os
 from environments import River
+from environments import Swamp
 from animals import RiverDolphin
 
 
@@ -68,7 +69,7 @@ class Arboretum:
             habitat = River()
 
         if choice == "2":
-            pass
+            habitat = Swamp()
 
         self.habitats_dict[type(habitat).__name__].append(habitat)
         print(self.habitats_dict[type(habitat).__name__][0].id)
