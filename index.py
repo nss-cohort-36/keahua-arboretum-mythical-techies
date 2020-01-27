@@ -54,6 +54,7 @@ def main_menu():
 
     if choice == "3":
         animal_choice = animal_menu()
+        keahua.feed_animal(animal_choice)
 
     if choice == "4":
         pass
