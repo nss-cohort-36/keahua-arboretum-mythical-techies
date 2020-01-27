@@ -4,7 +4,7 @@ from arboretum import Arboretum
 from actions.report import build_facility_report
 # from environments import Habitat
 
-avail_animals = ["Gold Dust Day Gecko", "River Dolphin", "Nene Goose", "Kīkākapu", "Pueo", "'Ulae", "Ope'ape'a", "Happy-Face Spider"]
+avail_animals = ["Gold Dust Day Gecko", "River Dolphin", "Nene Goose", "Kikakapu", "Pueo", "'Ulae", "Ope'ape'a", "Happy-Face Spider"]
 avail_plants = ["Mountain Apple Tree", "Silversword", "Rainbow Eucalyptus Tree", "Blue Jade Vine"]
 avail_habitats = ["Mountain", "Swamp", "Grassland", "Forest", "River", "Coastline"]
 
@@ -62,8 +62,8 @@ def main_menu():
         build_facility_report(keahua)
         pass
 
-    else:
+    if choice != "6":
         main_menu()
 
- 
+
 main_menu()
