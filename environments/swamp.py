@@ -3,17 +3,19 @@ from interfaces import IAquatic
 from interfaces import ISwimming
 from interfaces import Identifiable
 from .habitat import Habitat
-#from interfaces.habitats import IStagnant
-#from interfaces import IFreshwater
-#from interfaces import ISunlight
+from interfaces import IStagnant
+from interfaces.animal import IFreshwater
+# from interfaces import ISunlight
 
 
 sys.path.append('../')
 
-class Swamp(Habitat, ISwimming, Identifiable) : #add IStagnat, IFreshwater, ISunlight
+class Swamp(Habitat, ISwimming, Identifiable, IStagnant, IFreshwater) : #add ISunlight
      def __init__(self):
         Habitat.__init__(self)
         Identifiable.__init__(self)
+        IStagnant.__init__(self)
+        IFreshwater.__init__(self)
         Habitat.plant_limit = 12
         Habitat.animal_limit = 18
 
