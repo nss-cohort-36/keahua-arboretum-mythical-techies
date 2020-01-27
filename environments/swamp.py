@@ -1,5 +1,4 @@
 import sys
-from interfaces import IAquatic
 from interfaces import Identifiable
 from .habitat import Habitat
 #from interfaces.habitats import IStagnant
@@ -10,8 +9,8 @@ class Swamp(Habitat, Identifiable):
      def __init__(self):
         Habitat.__init__(self)
         Identifiable.__init__(self)
-        Habitat.plant_limit = 12
-        Habitat.animal_limit = 18
+        self.plant_limit = 12
+        self.animal_limit = 8
 
     #  def __init__(self, name):
     #   self.name = name
