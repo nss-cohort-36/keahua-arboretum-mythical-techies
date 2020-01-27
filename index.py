@@ -1,8 +1,8 @@
-import os
+# import os
 from arboretum import Arboretum
 # from actions.release_animal import release_animal
 from actions.report import build_facility_report
-from environments import Habitat
+# from environments import Habitat
 
 avail_animals = ["Gold Dust Day Gecko", "River Dolphin", "Nene Goose", "Kīkākapu", "Pueo", "'Ulae", "Ope'ape'a", "Happy-Face Spider"]
 avail_plants = ["Mountain Apple Tree", "Silversword", "Rainbow Eucalyptus Tree", "Blue Jade Vine"]
@@ -63,5 +63,6 @@ def main_menu():
 
     else:
         main_menu()
+
 
 main_menu()
