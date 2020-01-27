@@ -1,17 +1,16 @@
-import os
+# import os
 from arboretum import Arboretum
-from actions.annex import annex_habitat
-from actions.release_animal import release_animal
+# from actions.release_animal import release_animal
 from actions.report import build_facility_report
-from environments import Habitat
+# from environments import Habitat
 
 avail_animals = ["Gold Dust Day Gecko", "River Dolphin", "Nene Goose", "Kīkākapu", "Pueo", "'Ulae", "Ope'ape'a", "Happy-Face Spider"]
 avail_plants = ["Mountain Apple Tree", "Silversword", "Rainbow Eucalyptus Tree", "Blue Jade Vine"]
 avail_habitats = ["Mountain", "Swamp", "Grassland", "Forest", "River", "Coastline"]
 
 keahua = Arboretum("Keahua Arboretum", "123 Paukauila Lane", avail_animals, avail_plants, avail_habitats)
-print(keahua.habitats_dict)
 
+print(keahua.habitats_dict)
 
 
 # keahua.habitats_dict.["River"].append("happy")
@@ -19,6 +18,12 @@ print(keahua.habitats_dict)
 # keahua.habitats_dict["River"].append("Happy")
 # print(keahua.habitats_dict)
 
+def animal_menu():
+    for animal in avail_animals:
+        print(f"{avail_animals.index(animal) + 1}. {animal}")
+
+    choice = input(">> ")
+    return choice
 
 
 def build_menu():
@@ -44,10 +49,11 @@ def main_menu():
         print(keahua.habitats_dict)
 
     if choice == "2":
-        release_animal(keahua)
+        animal_choice = animal_menu()
+        keahua.release_animal(animal_choice)
 
     if choice == "3":
-        pass
+        animal_choice = animal_menu()
 
     if choice == "4":
         pass
@@ -56,7 +62,8 @@ def main_menu():
         build_facility_report(keahua)
         pass
 
-    if choice != "6":
+    else:
         main_menu()
+
 
 main_menu()

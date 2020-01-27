@@ -1,16 +1,14 @@
+from .habitat import Habitat
 from interfaces import IAquatic
 from interfaces import Identifiable
-from interfaces import IContainsAnimals
-from interfaces import IContainsPlants
 from animals import RiverDolphin
 
 
-class River(IContainsAnimals, IContainsPlants, Identifiable):
+class River(Habitat, Identifiable):
 
     def __init__(self):
-      IContainsAnimals.__init__(self)
-      IContainsPlants.__init__(self)
-      Identifiable.__init__(self)
+        Habitat.__init__(self)
+        Identifiable.__init__(self)
 
     def add_animal(self, animal):
         try:

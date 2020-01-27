@@ -1,6 +1,7 @@
 import os
 from environments import River
 
+
 def annex_habitat(arboretum):
     os.system('cls' if os.name == 'nt' else 'clear')
     print("1. River")
@@ -14,8 +15,8 @@ def annex_habitat(arboretum):
 
     if choice == "1":
         river = River()
-        
+
         arboretum.annex_river(river)
         print(arboretum.rivers[0].id)
     if choice == "2":
-        pass 
+        pass
