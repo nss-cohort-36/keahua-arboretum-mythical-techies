@@ -1,6 +1,5 @@
 import os
-
-from environments import River, Swamp, Coastline
+from environments import River, Swamp, Coastline, Mountain, Forest, Grassland
 from animals import RiverDolphin, HappyFaceSpider, GoldDustDayGecko, Opeapea, NeneGoose, Ulae, Pueo, Kikakapu
 
 
@@ -67,8 +66,17 @@ class Arboretum:
 
     # Add other biomes
 
+        if choice == "1":
+            habitat = Mountain()
+        
         if choice == "2":
             habitat = Swamp()
+        
+        if choice == "3":
+            habitat = Grassland()
+        
+        if choice == "4":
+            habitat = Forest()
         
         if choice == "5":
             habitat = River()
@@ -129,13 +137,12 @@ class Arboretum:
 
         habitatTargetList = self.habitats_dict[type(targetHabitat).__name__] ## ?
         object_class_animal_to_add = habitatTargetList[habitatTargetList.index(targetHabitat)]
-        print(dir(object_class_animal_to_add))
 
         if len(object_class_animal_to_add.animals) < object_class_animal_to_add.animal_limit: 
             object_class_animal_to_add.animals.append(animal_to_add)
             print(f"You have added an {type(animal_to_add).__name__} to {type(targetHabitat).__name__} {object_class_animal_to_add}")
-            print(object_class_animal_to_add.animals)
+
         else:
             print("That habitat is already at it's max for animals. Please choose another habitat")
 
-        print(habitatTargetList[habitatTargetList.index(targetHabitat)].animals)
+        print(object_class_animal_to_add.animals)
