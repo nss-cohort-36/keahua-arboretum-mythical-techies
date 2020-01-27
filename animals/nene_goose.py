@@ -10,7 +10,7 @@ class NeneGoose(Animal, IFlying, ITerrestrial, Identifiable):
         IFlying.__init__(self)
         ITerrestrial.__init__(self)        
         Identifiable.__init__(self)
-        self.__prey = { "Grass", "Weeds", "Berries" }
+        self.__prey = ["Grass", "Weeds", "Berries"]
 
     @property
     def prey(self):
