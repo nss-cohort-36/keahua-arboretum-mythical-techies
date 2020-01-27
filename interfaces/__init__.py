@@ -8,3 +8,4 @@ from .identifiable import Identifiable
 from .stagnant import IStagnant
 from .contains_animals import IContainsAnimals
 from .contains_plants import IContainsPlants
+from .sunlight import ISunlight
