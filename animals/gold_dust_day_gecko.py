@@ -2,7 +2,7 @@ from animals import Animal
 from interfaces.terrestrial import ITerrestrial
 from interfaces import Identifiable
 
-class GoldDustDayGecko(Animal, IFlying, ITerrestrial, Identifiable):
+class GoldDustDayGecko(Animal, ITerrestrial, Identifiable):
 
     def __init__(self):
         Animal.__init__(self, "Gold Dust Day Gecko")
