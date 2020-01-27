@@ -92,6 +92,7 @@ class Arboretum:
         print(self.habitats_dict[type(habitat).__name__][0].id)
 
     def release_animal(self, choice):
+        print(choice)
         if choice == "1":
             animal_to_add = GoldDustDayGecko()
             potentialHabitatsForAddedAnimal = [forest for forest in self.habitats_dict["Forest"]]
@@ -155,21 +156,21 @@ class Arboretum:
             potentialHabitatsForAddedPlant = [mountain for mountain in self.habitats_dict["Mountain"]]
 
         if choice == "2":
-            animal_to_add = Silversword()
+            plant_to_add = Silversword()
             potentialHabitatsForAddedPlant = [grassland for grassland in self.habitats_dict["Grassland"]]
 
         if choice == "3":
-            animal_to_add = RainbowEucalyptus()
+            plant_to_add = RainbowEucalyptus()
             potentialHabitatsForAddedPlant = [forest for forest in self.habitats_dict["Forest"]]
 
         if choice == "4":
-            animal_to_add = BlueJadeVine()
+            plant_to_add = BlueJadeVine()
             potentialHabitatsForAddedPlant = [grassland for grassland in self.habitats_dict["Grassland"]] + [swamp for swamp in self.habitats_dict["Swamp"]]
 
         for i, v in enumerate(potentialHabitatsForAddedPlant):
             print(f'{i + 1}. {type(v).__name__} {v.id}')
 
-        print("Release the animal into which biome?")
+        print(f"Where would you like to plant the {plant_to_add.species}?")
         choice = input("> ")
 
         print(potentialHabitatsForAddedPlant[int(choice)-1].id)
@@ -177,13 +178,13 @@ class Arboretum:
         targetHabitat = potentialHabitatsForAddedPlant[int(choice)-1]
 
         habitatTargetList = self.habitats_dict[type(targetHabitat).__name__] ## ?
-        object_class_animal_to_add = habitatTargetList[habitatTargetList.index(targetHabitat)]
+        object_class_plant_to_add = habitatTargetList[habitatTargetList.index(targetHabitat)]
 
-        if len(object_class_animal_to_add.animals) < object_class_animal_to_add.animal_limit: 
-            object_class_animal_to_add.animals.append(animal_to_add)
-            print(f"You have added an {type(animal_to_add).__name__} to {type(targetHabitat).__name__} {object_class_animal_to_add}")
+        if len(object_class_plant_to_add.plants) < object_class_plant_to_add.plant_limit: 
+            object_class_plant_to_add.plants.append(plant_to_add)
+            print(f"You have added an {type(plant_to_add).__name__} to {type(targetHabitat).__name__} {object_class_plant_to_add}")
 
         else:
             print("That habitat is already at it's max for animals. Please choose another habitat")
 
-        print(object_class_animal_to_add.animals)
+        print(habitatTargetList + object_class_plant_to_add.plants)

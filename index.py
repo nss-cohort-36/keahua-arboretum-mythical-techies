@@ -25,6 +25,15 @@ def animal_menu():
     choice = input(">> ")
     return choice
 
+def plant_menu():
+    for plant in avail_plants:
+        print(f"{avail_plants.index(plant) + 1}. {plant}")
+
+    choice = input(">> ")
+    return choice
+
+
+
 
 def build_menu():
     # os.system('cls' if os.name == 'nt' else 'clear')
@@ -56,7 +65,8 @@ def main_menu():
         animal_choice = animal_menu()
 
     if choice == "4":
-        pass
+        plant_choice = plant_menu()
+        keahua.cultivate_plant(plant_choice)
 
     if choice == "5":
         build_facility_report(keahua)
