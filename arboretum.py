@@ -1,11 +1,14 @@
 import os
 from environments import River
 from environments import Swamp
+
 from animals.river_dolphin import RiverDolphin
 from animals.gold_dust_day_gecko import GoldDustDayGecko
 from animals.opeapea import Opeapea
 from animals.nene_goose import NeneGoose
 from animals.ulae import Ulae
+from environments import Coastline
+from animals import RiverDolphin
 
 
 
@@ -67,14 +70,22 @@ class Arboretum:
             print(f"{self.avail_habitats.index(habitat) + 1}. {habitat}")
 
         choice = input("Choose your habitat > ")
+        print(choice)
 
     # Add other biomes
 
+        if choice == "2":
+            habitat = Swamp()
+        
         if choice == "5":
             habitat = River()
 
-        if choice == "2":
-            habitat = Swamp()
+        if choice == "6":
+            habitat = Coastline()
+
+        # else:
+        #     print("That is not a valid choice")
+        #     return
 
         self.habitats_dict[type(habitat).__name__].append(habitat)
         print(self.habitats_dict[type(habitat).__name__][0].id)
