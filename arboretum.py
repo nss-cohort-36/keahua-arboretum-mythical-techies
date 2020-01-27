@@ -1,7 +1,7 @@
 import os
 from environments import River, Swamp, Coastline, Mountain, Forest, Grassland
 from animals import RiverDolphin, HappyFaceSpider, GoldDustDayGecko, Opeapea, NeneGoose, Ulae, Pueo, Kikakapu
-
+from plants import BlueJadeVine, MountainAppleTree, RainbowEucalyptus, Silversword
 
 class Arboretum:
     def __init__(self, name, address, avail_animals, avail_plants, avail_habitats):
@@ -77,7 +77,9 @@ class Arboretum:
             potentialHabitatsForAddedAnimal = [forest for forest in self.habitats_dict["Forest"]] + [mountain for mountain in self.habitats_dict["Mountain"]]
 
         if choice == "8":
-            animal_to_add = HappyFaceSpider()
+            #animal_to_add = HappyFaceSpider()
+            #for testing until the spider will be ready
+            animal_to_add = RiverDolphin() 
             potentialHabitatsForAddedAnimal = [swamp for swamp in self.habitats_dict["Swamp"]]
 
         for i, v in enumerate(potentialHabitatsForAddedAnimal):
