@@ -106,7 +106,6 @@ class Arboretum:
         # print(habitatTargetList[habitatTargetList.index(targetHabitat)].animals)
 
     def feed_animal(self, choice):
-
         if choice == "1":
             animal_to_feed = GoldDustDayGecko()
 
@@ -138,4 +137,4 @@ class Arboretum:
         choice = input("> ")
 
         targetPrey = animal_to_feed.prey[int(choice)-1]
-        print(targetPrey)
+        animal_to_feed.feed(targetPrey)

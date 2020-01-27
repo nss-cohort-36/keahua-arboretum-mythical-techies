@@ -10,7 +10,7 @@ class Kikakapu(Animal, Identifiable, IFreshwater):
         # Inherit interface props
         IFreshwater.__init__(self) # Inherits from IAquatic interface
         Identifiable.__init__(self)
-        self.__prey = {"Mackrel","Tuna", "Clownfish"}
+        self.__prey = ["Mackerel","Tuna", "Clownfish"]
     
     @property
     def prey(self):

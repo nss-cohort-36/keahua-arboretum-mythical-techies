@@ -11,7 +11,7 @@ class Pueo(Animal, IFlying, Identifiable):
         Animal.__init__(self, "Pueo") # Inherit props from Animal parent class
         IFlying.__init__(self) # Inherit interface props
         Identifiable.__init__(self)
-        self.__prey = {"Mouse", "Gerbil", "Hamster", "Rat"}
+        self.__prey = ["Mouse", "Gerbil", "Hamster", "Rat"]
     
     @property
     def prey(self):
