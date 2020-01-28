@@ -18,7 +18,7 @@ class Arboretum:
         for habitat in self.avail_habitats:
             print(f"{self.avail_habitats.index(habitat) + 1}. {habitat}")
 
-        choice = input("Choose your habitat > ")
+        choice = input("\nChoose what you want to annex \n>")
         print(choice)
 
         if choice == "1":
@@ -83,10 +83,10 @@ class Arboretum:
 
         # Prints the available habitats to the user after releasing a new animal.  Formated [Name][id]
         for i, v in enumerate(potentialHabitatsForAddedAnimal):
-            print(f'{i + 1}. {type(v).__name__} {v.id}')
+            print(f'{i + 1}. {type(v).__name__} ({len(v.animals)} animals)')
 
         # Prompts the user to select a habitat
-        print("Release the animal into which biome?")
+        print(f"\nWhere would you like to release the {animal_to_add.species}")
         choice = input("> ")
 
         print(potentialHabitatsForAddedAnimal[int(choice)-1].id)
@@ -123,12 +123,12 @@ class Arboretum:
             potentialHabitatsForAddedPlant = [grassland for grassland in self.habitats_dict["Grassland"]] + [swamp for swamp in self.habitats_dict["Swamp"]]
 
         for i, v in enumerate(potentialHabitatsForAddedPlant):
-            print(f'{i + 1}. {type(v).__name__} {v.id}')
+            print(f'{i + 1}. {type(v).__name__} ({len(v.plants)} plants)')
 
         print(f"Where would you like to plant the {plant_to_add.species}?")
         choice = input("> ")
 
-        print(potentialHabitatsForAddedPlant[int(choice)-1].id)
+        print("Potential Plant =>", potentialHabitatsForAddedPlant[int(choice)-1].id)
 
         targetHabitat = potentialHabitatsForAddedPlant[int(choice)-1]
 

@@ -16,6 +16,7 @@ def animal_menu():
     for animal in avail_animals:
         print(f"{avail_animals.index(animal) + 1}. {animal}")
 
+    print("\nChoose animal")
     choice = input(">> ")
     return choice
 
@@ -31,13 +32,18 @@ def plant_menu():
 
 def build_menu():
     # os.system('cls' if os.name == 'nt' else 'clear')
-    print("1. Annex Habitat")
-    print("2. Release Animal into Habitat")
-    print("3. Feed Animal")
-    print("4. Add Plant to Habitat")
-    print("5. Display Facility Report")
-    print("6. Exit")
 
+    print('+' + '-++' *16 + '-+')
+    print('|  K  e  a  h  u  a    A  r  b  o  r  e  t  u  m  |' )
+    print('+' + '-++' *16 + '-+\n')
+    # print(f'+{'-++' * 16}-+')
+    print("1. Annex Biome")
+    print("2. Release New Animal")
+    print("3. Feed Animal")
+    print("4. Cultivate New Plant")
+    print("5. Show Arboretum Report")
+    print("6. Exit\n")
+    print("Choose a KILLER option")
 
 def main_menu():
     """Show Keahua Action Options
