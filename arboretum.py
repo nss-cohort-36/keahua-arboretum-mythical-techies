@@ -77,9 +77,7 @@ class Arboretum:
             potentialHabitatsForAddedAnimal = [forest for forest in self.habitats_dict["Forest"]] + [mountain for mountain in self.habitats_dict["Mountain"]]
 
         if choice == "8":
-            #animal_to_add = HappyFaceSpider()
-            #for testing until the spider will be ready
-            animal_to_add = RiverDolphin() 
+            animal_to_add = HappyFaceSpider()
             potentialHabitatsForAddedAnimal = [swamp for swamp in self.habitats_dict["Swamp"]]
 
         for i, v in enumerate(potentialHabitatsForAddedAnimal):

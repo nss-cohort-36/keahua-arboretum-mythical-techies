@@ -1,13 +1,13 @@
 from animals import Animal
-# from interfaces import IStagnant
+from interfaces import IStagnant
 from interfaces import Identifiable
 
 
-class HappyFaceSpider(Animal):
+class HappyFaceSpider(Animal, IStagnant, Identifiable):
 
     def __init__(self):
         Animal.__init__(self, "Happy-Face Spider")
-        # IStagnant.__init__(self)
+        IStagnant.__init__(self)
         Identifiable.__init__(self)
         self.__prey = ["Grasshopper", "Fruit fly"]
 

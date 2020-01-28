@@ -31,10 +31,19 @@ class Swamp(Habitat, ISwimming, Identifiable, IStagnant, IFreshwater) :
      def animal_count(self):
         return "This place has a bunch of animals in it"
 
-     def addInhabitant(self, item):
-        if not isinstance(item, IStagnant):
-            raise TypeError(f"{item} is not of type IStagnant")
-        self.inhabitants.append(item)
+     def add_animal(self, animal):
+        try:
+            if (animal.freshwater or animal.stagnant) :
+                self.animals.append(animal)
+        except AttributeError:
+            raise AttributeError("Cannot add non-freshwater, or non stagnant animals to a swamp")
+
+     def add_plant(self, plant):
+        try:
+            if plant.freshwater:
+                self.plants.append(plant)
+        except AttributeError:
+            raise AttributeError("Cannot add plants that require brackish water or stagnant water to a swamp biome")
 
      # def __str__(self):
      #    return self.name
