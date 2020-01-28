@@ -142,7 +142,7 @@ class Arboretum:
         object_class_animal_to_add = habitatTargetList[habitatTargetList.index(targetHabitat)]
 
         if len(object_class_animal_to_add.animals) < object_class_animal_to_add.animal_limit: 
-            object_class_animal_to_add.animals.append(animal_to_add)
+            object_class_animal_to_add.add_animal(animal_to_add)
             print(f"You have added an {type(animal_to_add).__name__} to {type(targetHabitat).__name__} {object_class_animal_to_add}")
 
         else:
@@ -181,7 +181,9 @@ class Arboretum:
         object_class_plant_to_add = habitatTargetList[habitatTargetList.index(targetHabitat)]
 
         if len(object_class_plant_to_add.plants) < object_class_plant_to_add.plant_limit: 
-            object_class_plant_to_add.plants.append(plant_to_add)
+            # object_class_plant_to_add.plants.append(plant_to_add)
+            object_class_plant_to_add.add_plant(plant_to_add)
+
             print(f"You have added an {type(plant_to_add).__name__} to {type(targetHabitat).__name__} {object_class_plant_to_add}")
 
         else:
