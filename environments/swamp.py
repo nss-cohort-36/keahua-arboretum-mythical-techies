@@ -4,7 +4,7 @@ from interfaces import ISwimming
 from interfaces import Identifiable
 from .habitat import Habitat
 from interfaces import IStagnant
-from interfaces.animal import IFreshwater
+from interfaces import IFreshwater
 from interfaces import ISunlight
 
 # from interfaces import ISunlight
@@ -33,7 +33,7 @@ class Swamp(Habitat, ISwimming, Identifiable, IStagnant, IFreshwater) :
 
      def add_animal(self, animal):
         try:
-            if (animal.freshwater or animal.stagnant) :
+            if (animal.stagnant or animal.freshwater):
                 self.animals.append(animal)
         except AttributeError:
             raise AttributeError("Cannot add non-freshwater, or non stagnant animals to a swamp")
