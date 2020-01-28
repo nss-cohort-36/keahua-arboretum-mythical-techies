@@ -1,16 +1,12 @@
 from animals import Animal
-from interfaces import IFlying 
-from interfaces import Identifiable 
-
-# Animal menu number 5
-
-
-class Pueo(Animal, IFlying, Identifiable):
+from interfaces import IFlying, Identifiable, ITerrestrial 
+class Pueo(Animal, IFlying, Identifiable, ITerrestrial):
     
     def __init__(self):
         Animal.__init__(self, "Pueo") # Inherit props from Animal parent class
         IFlying.__init__(self) # Inherit interface props
         Identifiable.__init__(self)
+        ITerrestrial.__init__(self)
         self.__prey = ["Mouse", "Gerbil", "Hamster", "Rat"]
     
     @property
