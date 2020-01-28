@@ -1,4 +1,4 @@
-# import os
+import os
 from arboretum import Arboretum
 # from actions.release_animal import release_animal
 # from actions.report import build_facility_report
@@ -31,7 +31,7 @@ def plant_menu():
 
 
 def build_menu():
-    # os.system('cls' if os.name == 'nt' else 'clear')
+    os.system('cls' if os.name == 'nt' else 'clear')
 
     print('+' + '-++' *16 + '-+')
     print('|  K  e  a  h  u  a    A  r  b  o  r  e  t  u  m  |' )
@@ -71,7 +71,14 @@ def main_menu():
 
     if choice == "5":
         keahua.build_facility_report()
-        
+    
+    if choice == "000":
+        os.system('cls' if os.name == 'nt' else 'clear')
+        print("  /~\\")
+        print(" C oo")
+        print(" _( ^)")
+        print("//   ~\\")
+        input("")        
 
     if choice != "6":
         main_menu()
