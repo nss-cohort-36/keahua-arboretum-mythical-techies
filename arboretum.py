@@ -24,24 +24,24 @@ class Arboretum:
         if choice == "1":
             habitat = Mountain()
         
-        if choice == "2":
+        elif choice == "2":
             habitat = Swamp()
         
-        if choice == "3":
+        elif choice == "3":
             habitat = Grassland()
         
-        if choice == "4":
+        elif choice == "4":
             habitat = Forest()
         
-        if choice == "5":
+        elif choice == "5":
             habitat = River()
 
-        if choice == "6":
+        elif choice == "6":
             habitat = Coastline()
 
-        # else:
-        #     print("That is not a valid choice")
-        #     return
+        else:
+            print("That is not a valid choice")
+            return
 
         self.habitats_dict[type(habitat).__name__].append(habitat)
         print(self.habitats_dict[type(habitat).__name__][0].id)
@@ -52,34 +52,37 @@ class Arboretum:
             animal_to_add = GoldDustDayGecko()
             potentialHabitatsForAddedAnimal = [forest for forest in self.habitats_dict["Forest"]]
 
-        if choice == "2":
+        elif choice == "2":
             animal_to_add = RiverDolphin()
             potentialHabitatsForAddedAnimal = [river for river in self.habitats_dict["River"]] + [coastline for coastline in self.habitats_dict["Coastline"]]
 
-        if choice == "3":
+        elif choice == "3":
             animal_to_add = NeneGoose()
             potentialHabitatsForAddedAnimal = [grassland for grassland in self.habitats_dict["Grassland"]]
 
-        if choice == "4":
+        elif choice == "4":
             animal_to_add = Kikakapu()
             potentialHabitatsForAddedAnimal = [river for river in self.habitats_dict["River"]] + [swamp for swamp in self.habitats_dict["Swamp"]]
 
-        if choice == "5":
+        elif choice == "5":
             animal_to_add = Pueo()
-            # print(f"I am an {animal_to_add} ")
             potentialHabitatsForAddedAnimal = [grassland for grassland in self.habitats_dict["Grassland"]] + [forest for forest in self.habitats_dict["Forest"]]
 
-        if choice == "6":
+        elif choice == "6":
             animal_to_add = Ulae()
             potentialHabitatsForAddedAnimal = [coastline for coastline in self.habitats_dict["Coastline"]]
 
-        if choice == "7":
+        elif choice == "7":
             animal_to_add = Opeapea()
             potentialHabitatsForAddedAnimal = [forest for forest in self.habitats_dict["Forest"]] + [mountain for mountain in self.habitats_dict["Mountain"]]
 
-        if choice == "8":
+        elif choice == "8":
             animal_to_add = HappyFaceSpider()
             potentialHabitatsForAddedAnimal = [swamp for swamp in self.habitats_dict["Swamp"]]
+
+        else:
+            print("That is not a valid choice.")
+            return
 
         # Prints the available habitats to the user after releasing a new animal.  Formated [Name][id]
         for i, v in enumerate(potentialHabitatsForAddedAnimal):
@@ -89,7 +92,9 @@ class Arboretum:
         print("Release the animal into which biome?")
         choice = input("> ")
 
-        print(potentialHabitatsForAddedAnimal[int(choice)-1].id)
+        if int(choice) > len(potentialHabitatsForAddedPlant):
+            print("That is not a valid choice.")
+            return
 
         targetHabitat = potentialHabitatsForAddedAnimal[int(choice)-1]
 
@@ -110,17 +115,21 @@ class Arboretum:
             plant_to_add = MountainAppleTree()
             potentialHabitatsForAddedPlant = [mountain for mountain in self.habitats_dict["Mountain"]]
 
-        if choice == "2":
+        elif choice == "2":
             plant_to_add = Silversword()
             potentialHabitatsForAddedPlant = [grassland for grassland in self.habitats_dict["Grassland"]]
 
-        if choice == "3":
+        elif choice == "3":
             plant_to_add = RainbowEucalyptus()
             potentialHabitatsForAddedPlant = [forest for forest in self.habitats_dict["Forest"]]
 
-        if choice == "4":
+        elif choice == "4":
             plant_to_add = BlueJadeVine()
             potentialHabitatsForAddedPlant = [grassland for grassland in self.habitats_dict["Grassland"]] + [swamp for swamp in self.habitats_dict["Swamp"]]
+
+        else:
+            print("That is not a valid choice.")
+            return
 
         for i, v in enumerate(potentialHabitatsForAddedPlant):
             print(f'{i + 1}. {type(v).__name__} {v.id}')
@@ -128,7 +137,9 @@ class Arboretum:
         print(f"Where would you like to plant the {plant_to_add.species}?")
         choice = input("> ")
 
-        print(potentialHabitatsForAddedPlant[int(choice)-1].id)
+        if int(choice) > len(potentialHabitatsForAddedPlant):
+            print("That is not a valid choice.")
+            return
 
         targetHabitat = potentialHabitatsForAddedPlant[int(choice)-1]
 
@@ -152,26 +163,30 @@ class Arboretum:
         if choice == "1":
             animal_to_feed = GoldDustDayGecko()
 
-        if choice == "2":
+        elif choice == "2":
             animal_to_feed = RiverDolphin()
 
-        if choice == "3":
+        elif choice == "3":
             animal_to_feed = NeneGoose()
 
-        if choice == "4":
+        elif choice == "4":
             animal_to_feed = Kikakapu()
 
-        if choice == "5":
+        elif choice == "5":
             animal_to_feed = Pueo()
 
-        if choice == "6":
+        elif choice == "6":
             animal_to_feed = Ulae()
 
-        if choice == "7":
+        elif choice == "7":
             animal_to_feed = Opeapea()
 
-        if choice == "8":
+        elif choice == "8":
             animal_to_feed = HappyFaceSpider()
+
+        else:
+            print("No no. Feed something else.")
+            return
 
         for i, v in enumerate(animal_to_feed.prey):
                 print(f'{i + 1}. {v}')
