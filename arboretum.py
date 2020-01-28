@@ -96,20 +96,14 @@ class Arboretum:
         habitatTargetList = self.habitats_dict[type(targetHabitat).__name__]
         object_class_animal_to_add = habitatTargetList[habitatTargetList.index(targetHabitat)]
 
-<<<<<<< HEAD
         if len(object_class_animal_to_add.animals) < object_class_animal_to_add.animal_limit: 
             object_class_animal_to_add.add_animal(animal_to_add)
-=======
-        if len(object_class_animal_to_add.animals) < object_class_animal_to_add.animal_limit:
-            object_class_animal_to_add.animals.append(animal_to_add)
->>>>>>> master
             print(f"You have added an {type(animal_to_add).__name__} to {type(targetHabitat).__name__} {object_class_animal_to_add}")
 
         else:
             print("That habitat is already at it's max for animals. Please choose another habitat")
 
         print(object_class_animal_to_add.animals)
-<<<<<<< HEAD
 
     def cultivate_plant(self, choice):
         if choice == "1":
@@ -151,7 +145,6 @@ class Arboretum:
             print("That habitat is already at it's max for animals. Please choose another habitat")
 
         print(habitatTargetList + object_class_plant_to_add.plants)
-=======
         # print(habitatTargetList[habitatTargetList.index(targetHabitat)].animals)
 
     def feed_animal(self, choice):
@@ -187,4 +180,3 @@ class Arboretum:
 
         targetPrey = animal_to_feed.prey[int(choice)-1]
         animal_to_feed.feed(targetPrey)
->>>>>>> master
