@@ -1,4 +1,4 @@
-# import os
+import os
 from arboretum import Arboretum
 # from actions.release_animal import release_animal
 from actions.report import build_facility_report
@@ -57,6 +57,14 @@ def main_menu():
     if choice == "5":
         build_facility_report(keahua)
         pass
+    
+    if choice == "000":
+        os.system('cls' if os.name == 'nt' else 'clear')
+        print("  /~\\")
+        print(" C oo")
+        print(" _( ^)")
+        print("//   ~\\")
+        input("")
 
     if choice != "6":
         main_menu()
