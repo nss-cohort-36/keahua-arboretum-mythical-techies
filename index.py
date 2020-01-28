@@ -1,7 +1,7 @@
 # import os
 from arboretum import Arboretum
 # from actions.release_animal import release_animal
-from actions.report import build_facility_report
+# from actions.report import build_facility_report
 # from environments import Habitat
 
 avail_animals = ["Gold Dust Day Gecko", "River Dolphin", "Nene Goose", "Kikakapu", "Pueo", "'Ulae", "Ope'ape'a", "Happy-Face Spider"]
@@ -64,8 +64,8 @@ def main_menu():
         keahua.cultivate_plant(plant_choice)
 
     if choice == "5":
-        build_facility_report(keahua)
-        pass
+        keahua.build_facility_report()
+        
 
     if choice != "6":
         main_menu()
