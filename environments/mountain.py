@@ -19,8 +19,9 @@ class Mountain(Habitat, Identifiable):
             raise AttributeError("Cannot add non-terrestrial animals to a forest")
 
     def add_plant(self, plant):
-        try:
-            if plant.freshwater:
-                self.plants.append(plant)
-        except AttributeError:
-            raise AttributeError("Cannot add plants that require non-fresh water to a forest biome")
+        # try:
+        #     if plant.freshwater:
+        #         self.plants.append(plant)
+        # except AttributeError:
+        #     raise AttributeError("Cannot add plants that require non-fresh water to a forest biome")
+        self.plants.append(plant)
