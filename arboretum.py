@@ -81,9 +81,11 @@ class Arboretum:
             animal_to_add = HappyFaceSpider()
             potentialHabitatsForAddedAnimal = [swamp for swamp in self.habitats_dict["Swamp"]]
 
+        # Prints the available habitats to the user after releasing a new animal.  Formated [Name][id]
         for i, v in enumerate(potentialHabitatsForAddedAnimal):
             print(f'{i + 1}. {type(v).__name__} {v.id}')
 
+        # Prompts the user to select a habitat
         print("Release the animal into which biome?")
         choice = input("> ")
 
@@ -146,6 +148,7 @@ class Arboretum:
         # print(habitatTargetList[habitatTargetList.index(targetHabitat)].animals)
 
     def feed_animal(self, choice):
+        
         if choice == "1":
             animal_to_feed = GoldDustDayGecko()
 
@@ -178,3 +181,23 @@ class Arboretum:
 
         targetPrey = animal_to_feed.prey[int(choice)-1]
         animal_to_feed.feed(targetPrey)
+
+        
+    # Create the build facility report...
+    def build_facility_report(self):
+        
+        for key in self.habitats_dict:
+            # print("HABITAT DICT =>", self.habitats_dict)
+            # print("\n Dictionary Keys", key)
+            # habitat_to_access = key
+            for habitat in self.habitats_dict[key]:
+                print(f'[{type(habitat).__name__} {str(habitat.id)[0:8]}]')
+                
+                for animal in habitat.animals:
+                    print(f'    -- {animal.species} ({str(animal.id)[0:8]})')
+                    
+                for plant in habitat.plants:
+                    print(f'    -- {plant.species} ({str(plant.id)[0:8]})')
+                print('')
+        input("\n\nPress any key to continue...")
+    
