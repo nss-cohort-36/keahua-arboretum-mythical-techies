@@ -9,7 +9,7 @@ class Ulae(Animal, ISaltwater, Identifiable):
         Animal.__init__(self, "Ulae")
         ISaltwater.__init__(self)
         Identifiable.__init__(self)
-        self.__prey = { "Minnow", "Sardine", "Reef Fish" }
+        self.__prey = ["Minnow", "Sardine", "Reef Fish"]
 
     @property
     def prey(self):

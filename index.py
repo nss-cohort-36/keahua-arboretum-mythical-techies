@@ -12,6 +12,10 @@ keahua = Arboretum("Keahua Arboretum", "123 Paukauila Lane", avail_animals, avai
 
 print(keahua.habitats_dict)
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
 def animal_menu():
     for animal in avail_animals:
         print(f"{avail_animals.index(animal) + 1}. {animal}")
@@ -57,6 +61,7 @@ def main_menu():
 
     if choice == "3":
         animal_choice = animal_menu()
+        keahua.feed_animal(animal_choice)
 
     if choice == "4":
         plant_choice = plant_menu()
