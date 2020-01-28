@@ -18,8 +18,9 @@ class Coastline(Habitat, Identifiable):
             raise AttributeError("Cannot add non-aquatic, or saltwater animals to a river")
 
     def add_plant(self, plant):
-        try:
-            if plant.saltwater:
-                self.plants.append(plant)
-        except AttributeError:
-            raise AttributeError("Cannot add plants that require brackish water or stagnant water to a river biome")
+        # try:
+        #     if plant.saltwater:
+        #         self.plants.append(plant)
+        # except AttributeError:
+        #     raise AttributeError("Cannot add plants that require brackish water or stagnant water to a river biome")
+        self.plants.append(plant)
