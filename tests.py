@@ -1,7 +1,13 @@
 from environments import River, Swamp
+from animals import HappyFaceSpider
 
-testSwamp = Swamp()
-testRiver = River()
+# testSwamp = Swamp()
 
-print(f' Swamp {testSwamp.__dict__}')
-print(f' River {testRiver.__dict__}')
+bob = HappyFaceSpider()
+
+# print(f' Swamp {testSwamp.__dict__}')
+
+
+print(f' Swamp {bob.__dict__}')
+
+
