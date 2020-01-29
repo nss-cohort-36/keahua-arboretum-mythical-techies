@@ -10,8 +10,6 @@ avail_habitats = ["Mountain", "Swamp", "Grassland", "Forest", "River", "Coastlin
 
 keahua = Arboretum("Keahua Arboretum", "123 Paukauila Lane", avail_animals, avail_plants, avail_habitats)
 
-print(keahua.habitats_dict)
-
 
 def animal_menu():
     for animal in avail_animals:
