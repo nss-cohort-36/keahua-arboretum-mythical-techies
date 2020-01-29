@@ -19,7 +19,6 @@ class Arboretum:
             print(f"{self.avail_habitats.index(habitat) + 1}. {habitat}")
 
         choice = input("\nChoose what you want to annex \n>")
-        # print(choice)
 
         if choice == "1":
             habitat = Mountain()
@@ -83,7 +82,6 @@ class Arboretum:
             print("That is not a valid choice.")
             return
 
-        # Prints the available habitats to the user after releasing a new animal.  Formated [Name][id]
         for i, v in enumerate(potentialHabitatsForAddedAnimal):
 
             valid_habitat = len(v.animals) < v.animal_limit
@@ -148,14 +146,13 @@ class Arboretum:
 
         targetHabitat = potentialHabitatsForAddedPlant[int(choice)-1]
 
-        habitatTargetList = self.habitats_dict[type(targetHabitat).__name__] ## ?
+        habitatTargetList = self.habitats_dict[type(targetHabitat).__name__]
         object_class_plant_to_add = habitatTargetList[habitatTargetList.index(targetHabitat)]
 
         if len(object_class_plant_to_add.plants) < object_class_plant_to_add.plant_limit: 
-            # object_class_plant_to_add.plants.append(plant_to_add)
             object_class_plant_to_add.add_plant(plant_to_add)
 
-            print(f"You have added an {plant_to_add.species} to {type(targetHabitat).__name__} {object_class_plant_to_add}")
+            print(f"You have added an {plant_to_add.species} to {type(targetHabitat).__name__}")
 
         else:
             print("That habitat is already at it's max for animals. Please choose another habitat")
