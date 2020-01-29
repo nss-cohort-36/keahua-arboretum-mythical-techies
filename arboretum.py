@@ -155,13 +155,11 @@ class Arboretum:
             # object_class_plant_to_add.plants.append(plant_to_add)
             object_class_plant_to_add.add_plant(plant_to_add)
 
-            print(f"You have added an {type(plant_to_add).__name__} to {type(targetHabitat).__name__} {object_class_plant_to_add}")
+            print(f"You have added an {plant_to_add.species} to {type(targetHabitat).__name__} {object_class_plant_to_add}")
 
         else:
             print("That habitat is already at it's max for animals. Please choose another habitat")
 
-        print(habitatTargetList + object_class_plant_to_add.plants)
-        # print(habitatTargetList[habitatTargetList.index(targetHabitat)].animals)
 
     def feed_animal(self, choice):
         os.system('cls' if os.name == 'nt' else 'clear')
