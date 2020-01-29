@@ -46,7 +46,6 @@ class Arboretum:
         self.habitats_dict[type(habitat).__name__].append(habitat)
 
     def release_animal(self, choice):
-        os.system('cls' if os.name == 'nt' else 'clear')
 
         if choice == "1":
             animal_to_add = GoldDustDayGecko()
@@ -109,12 +108,11 @@ class Arboretum:
 
         if len(object_class_animal_to_add.animals) < object_class_animal_to_add.animal_limit: 
             object_class_animal_to_add.add_animal(animal_to_add)
-            print(f"You have added an {type(animal_to_add).__name__} to {type(targetHabitat).__name__} {object_class_animal_to_add}")
+            print(f"You have added an {animal_to_add.species} to {type(targetHabitat).__name__}")
 
         else:
             print("That habitat is already at it's max for animals. Please choose another habitat")
 
-        print(object_class_animal_to_add.animals)
 
     def cultivate_plant(self, choice):
         os.system('cls' if os.name == 'nt' else 'clear')
