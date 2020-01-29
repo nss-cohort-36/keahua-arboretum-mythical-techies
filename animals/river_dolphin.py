@@ -12,9 +12,9 @@ class RiverDolphin(Animal, IFreshwater, Identifiable):
         Identifiable.__init__(self)
         self.__prey = ["Trout", "Mackarel", "Salmon", "Sardine"]
 
-    # @property
-    # def prey(self):
-    #     return self.__prey
+    @property
+    def prey(self):
+        return self.__prey
 
     def feed(self, prey):
         if prey in self.__prey:

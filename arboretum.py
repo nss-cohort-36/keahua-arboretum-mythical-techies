@@ -18,8 +18,7 @@ class Arboretum:
         for habitat in self.avail_habitats:
             print(f"{self.avail_habitats.index(habitat) + 1}. {habitat}")
 
-        choice = input("Choose your habitat > ")
-        print(choice)
+        choice = input("\nChoose what you want to annex \n>")
 
         if choice == "1":
             habitat = Mountain()
@@ -44,10 +43,9 @@ class Arboretum:
             return
 
         self.habitats_dict[type(habitat).__name__].append(habitat)
-        print(self.habitats_dict[type(habitat).__name__][0].id)
 
     def release_animal(self, choice):
-        print(choice)
+
         if choice == "1":
             animal_to_add = GoldDustDayGecko()
             potentialHabitatsForAddedAnimal = [forest for forest in self.habitats_dict["Forest"]]
@@ -84,15 +82,20 @@ class Arboretum:
             print("That is not a valid choice.")
             return
 
-        # Prints the available habitats to the user after releasing a new animal.  Formated [Name][id]
         for i, v in enumerate(potentialHabitatsForAddedAnimal):
-            print(f'{i + 1}. {type(v).__name__} {v.id}')
+
+            valid_habitat = len(v.animals) < v.animal_limit
+            
+            if not valid_habitat:
+                print('')
+            else:
+                print(f'{i + 1}. {type(v).__name__} ({len(v.animals)} animals)')
 
         # Prompts the user to select a habitat
-        print("Release the animal into which biome?")
+        print(f"\nWhere would you like to release the {animal_to_add.species}")
         choice = input("> ")
 
-        if int(choice) > len(potentialHabitatsForAddedPlant):
+        if int(choice) > len(potentialHabitatsForAddedAnimal):
             print("That is not a valid choice.")
             return
 
@@ -103,14 +106,14 @@ class Arboretum:
 
         if len(object_class_animal_to_add.animals) < object_class_animal_to_add.animal_limit: 
             object_class_animal_to_add.add_animal(animal_to_add)
-            print(f"You have added an {type(animal_to_add).__name__} to {type(targetHabitat).__name__} {object_class_animal_to_add}")
+            print(f"You have added an {animal_to_add.species} to {type(targetHabitat).__name__}")
 
         else:
             print("That habitat is already at it's max for animals. Please choose another habitat")
 
-        print(object_class_animal_to_add.animals)
 
     def cultivate_plant(self, choice):
+        os.system('cls' if os.name == 'nt' else 'clear')
         if choice == "1":
             plant_to_add = MountainAppleTree()
             potentialHabitatsForAddedPlant = [mountain for mountain in self.habitats_dict["Mountain"]]
@@ -132,7 +135,7 @@ class Arboretum:
             return
 
         for i, v in enumerate(potentialHabitatsForAddedPlant):
-            print(f'{i + 1}. {type(v).__name__} {v.id}')
+            print(f'{i + 1}. {type(v).__name__} ({len(v.plants)} plants)')
 
         print(f"Where would you like to plant the {plant_to_add.species}?")
         choice = input("> ")
@@ -143,23 +146,20 @@ class Arboretum:
 
         targetHabitat = potentialHabitatsForAddedPlant[int(choice)-1]
 
-        habitatTargetList = self.habitats_dict[type(targetHabitat).__name__] ## ?
+        habitatTargetList = self.habitats_dict[type(targetHabitat).__name__]
         object_class_plant_to_add = habitatTargetList[habitatTargetList.index(targetHabitat)]
 
         if len(object_class_plant_to_add.plants) < object_class_plant_to_add.plant_limit: 
-            # object_class_plant_to_add.plants.append(plant_to_add)
             object_class_plant_to_add.add_plant(plant_to_add)
 
-            print(f"You have added an {type(plant_to_add).__name__} to {type(targetHabitat).__name__} {object_class_plant_to_add}")
+            print(f"You have added an {plant_to_add.species} to {type(targetHabitat).__name__}")
 
         else:
             print("That habitat is already at it's max for animals. Please choose another habitat")
 
-        print(habitatTargetList + object_class_plant_to_add.plants)
-        # print(habitatTargetList[habitatTargetList.index(targetHabitat)].animals)
 
     def feed_animal(self, choice):
-        
+        os.system('cls' if os.name == 'nt' else 'clear')
         if choice == "1":
             animal_to_feed = GoldDustDayGecko()
 
@@ -200,13 +200,10 @@ class Arboretum:
         
     # Create the build facility report...
     def build_facility_report(self):
-        
+        os.system('cls' if os.name == 'nt' else 'clear')
         for key in self.habitats_dict:
-            # print("HABITAT DICT =>", self.habitats_dict)
-            # print("\n Dictionary Keys", key)
-            # habitat_to_access = key
             for habitat in self.habitats_dict[key]:
-                print(f'[{type(habitat).__name__} {str(habitat.id)[0:8]}]')
+                print(f'{type(habitat).__name__} [{str(habitat.id)[0:8]}]')
                 
                 for animal in habitat.animals:
                     print(f'    -- {animal.species} ({str(animal.id)[0:8]})')
