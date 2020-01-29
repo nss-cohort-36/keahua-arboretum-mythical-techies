@@ -59,6 +59,7 @@ def main_menu():
         keahua.release_animal(animal_choice)
 
     if choice == "3":
+        print('Which animal would you like to feed \n')
         animal_choice = animal_menu()
         keahua.feed_animal(animal_choice)
 

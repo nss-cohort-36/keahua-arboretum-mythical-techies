@@ -44,7 +44,6 @@ class Arboretum:
             return
 
         self.habitats_dict[type(habitat).__name__].append(habitat)
-        print(self.habitats_dict[type(habitat).__name__][0].id)
 
     def release_animal(self, choice):
         os.system('cls' if os.name == 'nt' else 'clear')
