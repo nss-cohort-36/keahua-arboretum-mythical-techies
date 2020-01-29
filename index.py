@@ -53,7 +53,6 @@ def main_menu():
 
     if choice == "1":
         keahua.annex_habitat()
-        print(keahua.habitats_dict)
 
     if choice == "2":
         animal_choice = animal_menu()

@@ -210,9 +210,6 @@ class Arboretum:
     def build_facility_report(self):
         os.system('cls' if os.name == 'nt' else 'clear')
         for key in self.habitats_dict:
-            # print("HABITAT DICT =>", self.habitats_dict)
-            # print("\n Dictionary Keys", key)
-            # habitat_to_access = key
             for habitat in self.habitats_dict[key]:
                 print(f'{type(habitat).__name__} [{str(habitat.id)[0:8]}]')
                 
