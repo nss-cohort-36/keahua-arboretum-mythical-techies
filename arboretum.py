@@ -98,9 +98,9 @@ class Arboretum:
         print(f"\nWhere would you like to release the {animal_to_add.species}")
         choice = input("> ")
 
-        # if int(choice) > len(potentialHabitatsForAddedPlant):
-        #     print("That is not a valid choice.")
-        #     return
+        if int(choice) > len(potentialHabitatsForAddedAnimal):
+            print("That is not a valid choice.")
+            return
 
         targetHabitat = potentialHabitatsForAddedAnimal[int(choice)-1]
 
